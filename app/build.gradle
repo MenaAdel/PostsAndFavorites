@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -66,4 +67,10 @@ dependencies {
     implementation "org.koin:koin-android:2.2.2"
     implementation 'org.koin:koin-androidx-scope:2.2.2'
     implementation 'org.koin:koin-androidx-viewmodel:2.2.2'
+
+    def nav_version = "2.3.2"
+
+    // navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.2"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.2"
 }

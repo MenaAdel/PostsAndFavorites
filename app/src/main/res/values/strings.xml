@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">PostsAndFavorites</string>
+    <string name="error_message">Oops, something went wrong</string>
+    <string name="posts">Posts</string>
+    <string name="favorites">Favorites</string>
 </resources>
