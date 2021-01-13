@@ -1,7 +1,8 @@
-package com.example.postsandfavorites
+package com.example.postsandfavorites.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.postsandfavorites.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
