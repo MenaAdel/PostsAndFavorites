@@ -9,6 +9,16 @@
         android:name="com.example.postsandfavorites.presentation.posts.PostsFragment"
         android:label="PostsFragment">
 
-        <action android:id="@+id/toDetailsScreen" />
+        <action android:id="@+id/toDetailsScreen"
+            app:destination="@id/commentsFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/commentsFragment"
+        android:name="com.example.postsandfavorites.presentation.details.CommentsFragment"
+        android:label="CommentsFragment" >
+        <argument
+            android:name="post_id"
+            app:argType="integer"
+            android:defaultValue="1" />
     </fragment>
 </navigation>

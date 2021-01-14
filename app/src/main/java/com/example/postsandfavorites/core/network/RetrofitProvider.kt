@@ -23,14 +23,14 @@ val retrofitModule = module {
             .readTimeout(60, TimeUnit.SECONDS)
             .build()
 
-    fun provideRetrofit(okHttpClient: OkHttpClient) {
+    fun provideRetrofit(okHttpClient: OkHttpClient) =
         Retrofit.Builder()
             .client(okHttpClient)
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(BASE_URL)
             .build()
-    }
+
 
     single { provideOkHttpClient() }
     single { provideRetrofit(get()) }

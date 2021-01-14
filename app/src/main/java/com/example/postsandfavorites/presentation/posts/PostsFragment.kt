@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.postsandfavorites.R
 import com.example.postsandfavorites.core.extentions.gone
@@ -18,7 +21,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PostsFragment : Fragment() {
 
-    //val viewModel: PostsViewModel by viewModel()
+    val viewModel: PostsViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,8 +31,8 @@ class PostsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        /*observe(viewModel.screenState, ::onScreenStateChange)
-        viewModel.getPosts()*/
+        observe(viewModel.screenState, ::onScreenStateChange)
+        viewModel.getPosts()
         loading_progress.gone()
     }
 
@@ -67,6 +70,8 @@ class PostsFragment : Fragment() {
     }
 
     private fun clickAction(id: Int) {
+        val action = PostsFragmentDirections.toDetailsScreen(id)
+        findNavController().navigate(action)
 
     }
 }

@@ -17,8 +17,12 @@ class App : Application() {
             androidContext(this@App)
             modules(
                 listOf(
-                    roomModule, repositoryModule, viewModelProvider, retrofitModule, gatewayProvider)
-
+                    roomModule,
+                    repositoryModule,
+                    viewModelProvider,
+                    retrofitModule,
+                    gatewayProvider
+                )
             )
         }
     }
