@@ -21,4 +21,8 @@
             app:argType="integer"
             android:defaultValue="1" />
     </fragment>
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.postsandfavorites.presentation.favorits.FavoritesFragment"
+        android:label="FavoritesFragment" />
 </navigation>

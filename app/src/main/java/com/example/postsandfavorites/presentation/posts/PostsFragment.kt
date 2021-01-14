@@ -40,7 +40,7 @@ class PostsFragment : Fragment() {
     private fun onScreenStateChange(states: PostsStates){
         when (states) {
             is PostsStates.Loading -> showLoadingState()
-            is PostsStates.LocalSuccess -> bindSuccessState(states.data)
+            is PostsStates.LocalSuccess -> bindLocalSuccessState(states.data)
             is PostsStates.RemoteSuccess -> bindSuccessState(states.data)
             is PostsStates.Error -> showErrorSnackBar()
         }
@@ -62,9 +62,17 @@ class PostsFragment : Fragment() {
         post_recycler.show()
     }
 
-    private fun bindSuccessState(list: List<PostsResponse>) {
+    private fun bindLocalSuccessState(list: List<PostsResponse>) {
         hideLoadingState()
         showErrorSnackBar(getString(R.string.no_internet))
+        with(post_recycler) {
+            adapter = PostsAdapter(list ,::clickAction)
+            layoutManager = LinearLayoutManager(context)
+        }
+    }
+
+    private fun bindSuccessState(list: List<PostsResponse>) {
+        hideLoadingState()
         with(post_recycler) {
             adapter = PostsAdapter(list ,::clickAction)
             layoutManager = LinearLayoutManager(context)
