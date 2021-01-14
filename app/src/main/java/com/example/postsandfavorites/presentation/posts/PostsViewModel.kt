@@ -11,12 +11,12 @@ import com.example.postsandfavorites.domain.posts.repository.PostsRepository
 import com.example.postsandfavorites.entites.posts.PostsResponse
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
-class PostsViewModel(val postsRepository: PostsRepository) : ViewModel() {
+class PostsViewModel(val postsRepository: PostsRepository ,val rxCommons: RxCommons = RxCommonsProd()) : ViewModel() {
 
     internal val screenState by lazy { MutableLiveData<PostsStates>() }
     private val disposable: CompositeDisposable by lazy { CompositeDisposable() }
 
-    fun getPosts(rxCommons: RxCommons = RxCommonsProd()) {
+    fun getPosts() {
         screenState.postValue(PostsStates.Loading)
         postsRepository.getPosts()
             .compose(rxCommons::backgroundComposer)

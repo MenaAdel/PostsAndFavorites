@@ -1,6 +1,7 @@
 package com.example.postsandfavorites.presentation.posts
 
 import android.os.Bundle
+import android.os.Message
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,8 +46,8 @@ class PostsFragment : Fragment() {
         }
     }
 
-    private fun showErrorSnackBar(){
-        Snackbar.make(parent_layout ,getString(R.string.error_message) ,Snackbar.LENGTH_LONG)
+    private fun showErrorSnackBar(message: String = getString(R.string.error_message)){
+        Snackbar.make(parent_layout ,message ,Snackbar.LENGTH_LONG)
             .setBackgroundTint(ContextCompat.getColor(requireContext(),R.color.red))
             .show()
     }
@@ -63,6 +64,7 @@ class PostsFragment : Fragment() {
 
     private fun bindSuccessState(list: List<PostsResponse>) {
         hideLoadingState()
+        showErrorSnackBar(getString(R.string.no_internet))
         with(post_recycler) {
             adapter = PostsAdapter(list ,::clickAction)
             layoutManager = LinearLayoutManager(context)

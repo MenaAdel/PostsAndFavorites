@@ -69,9 +69,23 @@ dependencies {
     implementation 'org.koin:koin-androidx-scope:2.2.2'
     implementation 'org.koin:koin-androidx-viewmodel:2.2.2'
 
-    def nav_version = "2.3.2"
-
     // navigation
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.2"
     implementation "androidx.navigation:navigation-ui-ktx:2.3.2"
+
+    //image
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+
+    //work manager
+    implementation "androidx.work:work-runtime:2.4.0"
+
+    //Test
+    testImplementation 'org.mockito:mockito-core:3.3.3'
+    testImplementation 'org.mockito:mockito-inline:2.13.0'
+    androidTestImplementation "org.mockito:mockito-android:2.25.0"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.6.0"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.6.0"
+
+    testImplementation 'androidx.arch.core:core-testing:2.1.0'
+
 }
